@@ -8,7 +8,7 @@
 if:
   name: pyarrow-core
   version: 26.0.0
-  timestamp_lt: 2026-11-02T18:03:25+01:00
+  timestamp_le: 2026-11-02T21:10:01+01:00
 then:
   - replace_constrains:
       old: numpy >=1.23,<3

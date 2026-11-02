@@ -37,8 +37,8 @@ polars' default runtime needs. That is not a missing constraint that a repodata 
 
 **Fix:** change the constraint to `numpy >=2.0,<3`
 - for the existing packages with the repodata patch in [`repodata_patch/pyarrow.yaml`](repodata_patch/pyarrow.yaml),
-  to be appended to `recipe/patch_yaml/pyarrow.yaml` of
-  [conda-forge-repodata-patches-feedstock](https://github.com/conda-forge/conda-forge-repodata-patches-feedstock).
+  proposed in
+  [conda-forge-repodata-patches-feedstock#1313](https://github.com/conda-forge/conda-forge-repodata-patches-feedstock/pull/1313).
   [`repodata_patch/show_diff_result.txt`](repodata_patch/show_diff_result.txt) is the output of the feedstock's
   `show_diff.py`: exactly the 53 pyarrow-core 26.0.0 records change, nothing else.
 - for future builds in `run_constrained` of the pyarrow-feedstock recipe, see
