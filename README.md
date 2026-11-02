@@ -8,8 +8,9 @@ Test suite for two problems that broke the CI of
 
 The first one is a missing constraint in the conda-forge repodata and can be fixed with a repodata patch
 ([`repodata_patch/pyarrow.yaml`](repodata_patch/pyarrow.yaml)). It is investigated here.
-The second one needs the self-hosted runner, so it is investigated in
-[FZJ-IEK3-VSA/test_polars](https://github.com/FZJ-IEK3-VSA/test_polars).
+The second one needs the self-hosted runners, so it is investigated in
+[FZJ-IEK3-VSA/test_polars](https://github.com/FZJ-IEK3-VSA/test_polars): their CPU has no AVX/AVX2, which
+polars' default runtime needs. That is not a missing constraint that a repodata patch could add.
 
 ## pyarrow-core 26.0.0 allows NumPy 1.x
 
@@ -62,10 +63,12 @@ creates a fresh conda-forge environment with `mamba create`, prints it with `mam
 | [`test_pyarrow_numpy.py`](test_pyarrow_numpy.py) | Imports pyarrow, converts numpy ↔ arrow ↔ pandas. |
 | [`repodata_patch/pyarrow.yaml`](repodata_patch/pyarrow.yaml) | Draft repodata patch for pyarrow-core 26.0.0. |
 
-### Expected results
+### Results
 
-All 36 matrix cells solve on linux-64, osx-arm64 and win-64 (checked with dry runs).
+The [first run](https://github.com/julian-belina/test_polars_and_pyarrow/actions/runs/41506829390) (2026-11-02):
+30 of 36 jobs pass. Exactly the 6 jobs with numpy 1.26.4 and pyarrow `26.0.0` or `any` fail, on all three OS, with
+`ImportError: pyarrow requires NumPy 2.0 or newer, found 1.26.4`: the solver accepts pyarrow-core 26.0.0 with
+numpy 1.26.4 even when pyarrow is not pinned.
 
-Today the 6 jobs with numpy 1.26.4 and pyarrow `26.0.0` or `any` fail on every OS, because the solver picks
-pyarrow-core 26.0.0. Once the repodata patch is live, `26.0.0` + `1.26.4` passes with the notice "solver refuses",
-and `any` + `1.26.4` passes with pyarrow 25.0.1.
+Once the repodata patch is live, `26.0.0` + `1.26.4` should pass with the notice "solver refuses", and `any` + `1.26.4`
+with pyarrow 25.0.1.
