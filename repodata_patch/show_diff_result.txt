@@ -1,0 +1,86 @@
+================================================================================
+================================================================================
+linux-ppc64le
+linux-ppc64le::pyarrow-core-26.0.0-py311hbf1591c_0_cpu.conda
+linux-ppc64le::pyarrow-core-26.0.0-py312h43f2f67_0_cpu.conda
+linux-ppc64le::pyarrow-core-26.0.0-py313h42b2d47_0_cpu.conda
+linux-ppc64le::pyarrow-core-26.0.0-py314h3149d75_0_cpu.conda
+linux-ppc64le::pyarrow-core-26.0.0-py315h20f4ee0_0_cpu.conda
+-    "numpy >=1.23,<3"
++    "numpy >=2.0,<3"
+================================================================================
+================================================================================
+noarch
+================================================================================
+================================================================================
+osx-arm64
+osx-arm64::pyarrow-core-26.0.0-py311h6894905_0_cpu.conda
+osx-arm64::pyarrow-core-26.0.0-py312h7d9569a_0_cpu.conda
+osx-arm64::pyarrow-core-26.0.0-py313ha5d34ea_0_cpu.conda
+osx-arm64::pyarrow-core-26.0.0-py314h0f65b96_0_cpu.conda
+osx-arm64::pyarrow-core-26.0.0-py314h7e6a90b_0_cpu.conda
+osx-arm64::pyarrow-core-26.0.0-py315h978f751_0_cpu.conda
+-    "numpy >=1.23,<3"
++    "numpy >=2.0,<3"
+================================================================================
+================================================================================
+linux-aarch64
+linux-aarch64::pyarrow-core-26.0.0-py311hba8f8eb_0_cuda.conda
+linux-aarch64::pyarrow-core-26.0.0-py311hc0d61b3_0_cpu.conda
+linux-aarch64::pyarrow-core-26.0.0-py312h0f9692b_0_cpu.conda
+linux-aarch64::pyarrow-core-26.0.0-py312hbdd96ad_0_cuda.conda
+linux-aarch64::pyarrow-core-26.0.0-py313h2c70293_0_cuda.conda
+linux-aarch64::pyarrow-core-26.0.0-py313h66f5eb6_0_cpu.conda
+linux-aarch64::pyarrow-core-26.0.0-py314h144bd0e_0_cuda.conda
+linux-aarch64::pyarrow-core-26.0.0-py314h4e316fa_0_cpu.conda
+linux-aarch64::pyarrow-core-26.0.0-py314h7f406d4_0_cpu.conda
+linux-aarch64::pyarrow-core-26.0.0-py314hc6ca91a_0_cuda.conda
+linux-aarch64::pyarrow-core-26.0.0-py315h13e68b3_0_cpu.conda
+linux-aarch64::pyarrow-core-26.0.0-py315hb134216_0_cuda.conda
+-    "numpy >=1.23,<3"
++    "numpy >=2.0,<3"
+================================================================================
+================================================================================
+win-64
+win-64::pyarrow-core-26.0.0-py311h4028636_0_cuda.conda
+win-64::pyarrow-core-26.0.0-py311hee28c0d_0_cpu.conda
+win-64::pyarrow-core-26.0.0-py312h0dba86e_0_cuda.conda
+win-64::pyarrow-core-26.0.0-py312h12c7521_0_cpu.conda
+win-64::pyarrow-core-26.0.0-py313h73198b0_0_cuda.conda
+win-64::pyarrow-core-26.0.0-py313hc76bb52_0_cpu.conda
+win-64::pyarrow-core-26.0.0-py314h159fc0c_0_cpu.conda
+win-64::pyarrow-core-26.0.0-py314h4b2c0cd_0_cpu.conda
+win-64::pyarrow-core-26.0.0-py314heb382f2_0_cuda.conda
+win-64::pyarrow-core-26.0.0-py314hfc226f7_0_cuda.conda
+win-64::pyarrow-core-26.0.0-py315h46fe2c0_0_cpu.conda
+win-64::pyarrow-core-26.0.0-py315h7ce7f77_0_cuda.conda
+-    "numpy >=1.23,<3"
++    "numpy >=2.0,<3"
+================================================================================
+================================================================================
+osx-64
+osx-64::pyarrow-core-26.0.0-py311h1c09687_0_cpu.conda
+osx-64::pyarrow-core-26.0.0-py312h3987635_0_cpu.conda
+osx-64::pyarrow-core-26.0.0-py313h345cca6_0_cpu.conda
+osx-64::pyarrow-core-26.0.0-py314h5554bfc_0_cpu.conda
+osx-64::pyarrow-core-26.0.0-py314hfb10f56_0_cpu.conda
+osx-64::pyarrow-core-26.0.0-py315h51131e7_0_cpu.conda
+-    "numpy >=1.23,<3"
++    "numpy >=2.0,<3"
+================================================================================
+================================================================================
+linux-64
+linux-64::pyarrow-core-26.0.0-py311h1358635_0_cpu.conda
+linux-64::pyarrow-core-26.0.0-py311hb8e52f1_0_cuda.conda
+linux-64::pyarrow-core-26.0.0-py312hc1c460d_0_cpu.conda
+linux-64::pyarrow-core-26.0.0-py312hfa4fb80_0_cuda.conda
+linux-64::pyarrow-core-26.0.0-py313hcba6aca_0_cpu.conda
+linux-64::pyarrow-core-26.0.0-py313hfe0801a_0_cuda.conda
+linux-64::pyarrow-core-26.0.0-py314h57703d4_0_cuda.conda
+linux-64::pyarrow-core-26.0.0-py314h62549e5_0_cuda.conda
+linux-64::pyarrow-core-26.0.0-py314h908848f_0_cpu.conda
+linux-64::pyarrow-core-26.0.0-py314hb474575_0_cpu.conda
+linux-64::pyarrow-core-26.0.0-py315h25c4ba1_0_cuda.conda
+linux-64::pyarrow-core-26.0.0-py315h5fe1983_0_cpu.conda
+-    "numpy >=1.23,<3"
++    "numpy >=2.0,<3"

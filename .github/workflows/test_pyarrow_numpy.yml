@@ -1,0 +1,60 @@
+name: pyarrow and numpy
+
+on:
+  push:
+    branches: ["**"]
+  # Allows to trigger the workflow manually
+  workflow_dispatch:
+
+# Each job first asks the solver whether it accepts the combination:
+# - solver refuses: the repodata constrains the combination (notice, job passes)
+# - solver accepts and the test passes: the combination works
+# - solver accepts and the test fails: a constraint is missing in the repodata (job fails)
+jobs:
+  TestPyarrowNumpy:
+    name: pyarrow=${{ matrix.pyarrow_version }} numpy=${{ matrix.numpy_version }} os=${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: ["ubuntu-latest", "macos-latest", "windows-latest"]
+        # "any" leaves pyarrow unpinned, like RESKit's requirements.yml does
+        pyarrow_version: ["24.0.0", "25.0.1", "26.0.0", "any"]
+        numpy_version: ["1.26.4", "2.0.2", "2.5.4"]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - uses: conda-incubator/setup-miniconda@v3
+        with:
+          miniforge-version: latest
+          channels: conda-forge
+          conda-remove-defaults: true
+      - name: Solve
+        id: solve
+        shell: pwsh
+        run: |
+          $PSNativeCommandUseErrorActionPreference = $false
+          $pyarrow = if ("${{ matrix.pyarrow_version }}" -eq "any") { "pyarrow" } else { "pyarrow=${{ matrix.pyarrow_version }}" }
+          $specs = "python=3.12 $pyarrow numpy=${{ matrix.numpy_version }} pandas"
+          "specs=$specs" >> $env:GITHUB_OUTPUT
+          mamba create --dry-run --yes --name test_env $specs.Split(" ")
+          if ($LASTEXITCODE -eq 0) {
+            "solvable=true" >> $env:GITHUB_OUTPUT
+          } else {
+            echo "::notice::The solver refuses '$specs', so the repodata constrains this combination."
+            "solvable=false" >> $env:GITHUB_OUTPUT
+          }
+          exit 0
+      - name: Install
+        if: steps.solve.outputs.solvable == 'true'
+        shell: pwsh
+        run: |
+          $specs = "${{ steps.solve.outputs.specs }}"
+          mamba create --yes --name test_env $specs.Split(" ")
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          echo "Installation done"
+          mamba list --name test_env
+      - name: Run test
+        if: steps.solve.outputs.solvable == 'true'
+        shell: pwsh
+        run: mamba run --name test_env python test_pyarrow_numpy.py
